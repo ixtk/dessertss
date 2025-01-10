@@ -56,6 +56,8 @@ button {
 
 .dessert img {
   border-radius: 15px;
+  width: 100%;
+  max-height: 300px;
 }
 
 .dessert button {
@@ -70,4 +72,29 @@ button {
   margin: 0 auto;
   color: var(--color-rose-900);
   font-weight: 600;
+}
+
+.category {
+  color: var(--color-rose-500);
+}
+
+.details p {
+  margin: 0.5rem 0;
+}
+
+.title {
+  color: var(--color-rose-900);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.desserts-container {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
 }
