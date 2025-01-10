@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Primary and Secondary Colors */
+  --color-primary: hsl(14, 86%, 42%);
+  --color-secondary: hsl(159, 69%, 38%);
+
+  /* Rose Palette */
+  --color-rose-50: hsl(20, 50%, 98%);
+  --color-rose-100: hsl(13, 31%, 94%);
+  --color-rose-300: hsl(14, 25%, 72%);
+  --color-rose-400: hsl(7, 20%, 60%);
+  --color-rose-500: hsl(12, 20%, 44%);
+  --color-rose-900: hsl(14, 65%, 9%);
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  background-color: var(--color-rose-50);
+  line-height: 1.4;
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a {
+  display: inline-block;
+}
+
+input,
+button {
+  font: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/* DESSERT */
+
+.dessert img {
+  border-radius: 15px;
+}
+
+.dessert button {
+  padding: 12px 25px;
+  border-radius: 24px;
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--color-rose-400);
+  transform: translateY(-50%);
+  margin: 0 auto;
+  color: var(--color-rose-900);
+  font-weight: 600;
+}
