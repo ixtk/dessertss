@@ -1,8 +1,8 @@
 import "./App.css";
 import desserts from "./data.json";
 import { Dessert } from "./components/Dessert";
-import { RemoveItem, CarbonNeutral } from "./Icons";
 import { useState } from "react";
+import { Cart } from "./components/Cart";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -25,37 +25,7 @@ function App() {
             })}
           </div>
         </div>
-        <div className="cart">
-          <h2>Your cart (7)</h2>
-          <ul>
-            {cartItems.map((dessertObj) => {
-              return (
-                <li key={dessertObj.name}>
-                  <p className="title">{dessertObj.name}</p>
-                  <span className="quantity">{dessertObj.quantity}x</span>
-                  <span className="price">@${dessertObj.price.toFixed(2)}</span>
-                  <span className="total">
-                    ${(dessertObj.price * dessertObj.quantity).toFixed(2)}
-                  </span>
-                  <button className="remove-btn">
-                    <RemoveItem />
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="summary">
-            <div className="total">
-              <p>Order total</p>
-              <p className="price">$46.50</p>
-            </div>
-            <p className="carbon-neutral">
-              <CarbonNeutral />
-              This is a <strong>carbon-neutral</strong> delivery
-            </p>
-            <button className="order-btn">Confirm Order</button>
-          </div>
-        </div>
+        <Cart setCartItems={setCartItems} cartItems={cartItems} />
       </main>
     </div>
   );

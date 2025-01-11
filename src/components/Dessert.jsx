@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { AddToCart, DecrementQuantity, IncrementQuantity } from "../Icons";
 import { useState } from "react";
 
@@ -6,11 +7,20 @@ const BASE_URL = "https://res.cloudinary.com/dc2c49xov/desserts";
 export const Dessert = ({ dessert, setCartItems, cartItems }) => {
   const [quantity, setQuantity] = useState(0);
   const images = dessert.images;
+  const cartItemNames = cartItems.map((dessertObj) => dessertObj.name);
+  const currentlyInCart = cartItemNames.includes(dessert.name);
 
-  const updateCart = (dessert, action) => {
-    const cartItemNames = cartItems.map((dessertObj) => dessertObj.name);
+  const updateCart = (action) => {
+    let newQuantity;
 
-    const newQuantity = action === "add" ? quantity + 1 : quantity - 1;
+    if (action === "add") {
+      newQuantity = 1;
+    } else if (action === "increment") {
+      newQuantity = quantity + 1;
+    } else {
+      newQuantity = quantity - 1;
+    }
+
     setQuantity(newQuantity);
 
     if (newQuantity === 0) {
@@ -18,7 +28,7 @@ export const Dessert = ({ dessert, setCartItems, cartItems }) => {
         cartItems.filter((dessertObj) => dessertObj.name !== dessert.name)
       );
     } else {
-      if (cartItemNames.includes(dessert.name)) {
+      if (currentlyInCart) {
         setCartItems(
           cartItems.map((dessertObj) => {
             if (dessertObj.name === dessert.name) {
@@ -40,7 +50,7 @@ export const Dessert = ({ dessert, setCartItems, cartItems }) => {
   };
 
   return (
-    <div className="dessert">
+    <div className={clsx("dessert", currentlyInCart && "added")}>
       <picture>
         <source
           media="(min-width:650px)"
@@ -52,19 +62,19 @@ export const Dessert = ({ dessert, setCartItems, cartItems }) => {
         />
         <img src={`${BASE_URL}/${images.desktop}`} />
       </picture>
-      {quantity === 0 ? (
-        <button className="cart-btn" onClick={() => updateCart(dessert, "add")}>
+      {!currentlyInCart ? (
+        <button className="cart-btn" onClick={() => updateCart("add")}>
           <AddToCart /> Add to cart
         </button>
       ) : (
         <div className="quantity-btns">
-          <button onClick={() => updateCart(dessert, "remove")}>
+          <button onClick={() => updateCart("remove")}>
             <DecrementQuantity />
           </button>
           <span>{quantity}</span>
           <button
             onClick={() => {
-              updateCart(dessert, "add");
+              updateCart("increment");
             }}
           >
             <IncrementQuantity />
