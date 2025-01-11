@@ -29,9 +29,9 @@ export const Dessert = ({ images, name, category, price }) => {
         </button>
       </div>
       <div className="details">
-        <span className="category">Waffle</span>
-        <p className="title">Waffle with Berries</p>
-        <p className="price">$6.50</p>
+        <span className="category">{category}</span>
+        <p className="title">{name}</p>
+        <p className="price">${price}</p>
       </div>
     </div>
   );
