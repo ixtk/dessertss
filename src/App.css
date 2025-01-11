@@ -97,6 +97,10 @@ h1 {
   align-items: center;
 }
 
+.cart-btn svg {
+  height: 26px;
+}
+
 .quantity-btns {
   justify-content: space-between;
   background-color: var(--color-primary);
@@ -115,10 +119,11 @@ h1 {
 }
 
 .dessert .cart-btn {
-  padding: 12px 25px;
+  padding: 12px;
   width: 60%;
   background-color: var(--color-light);
   border: 1px solid var(--color-rose-400);
+  justify-content: center;
   color: var(--color-rose-900);
 }
 
@@ -152,8 +157,9 @@ h1 {
 .cart {
   background-color: var(--color-light);
   border-radius: var(--radius-primary);
-  padding: 32px;
+  padding: 16px;
   box-shadow: var(--color-shade-secondary) 0px 1px 4px;
+  margin-bottom: 2rem;
 }
 
 .cart ul {
@@ -164,9 +170,9 @@ h1 {
 
 .cart li {
   display: grid;
-  grid-template-columns: auto auto auto 1fr auto;
+  grid-template-columns: auto auto 1fr auto;
   align-items: center;
-  gap: 0 8px;
+  gap: 0 16px;
   border-bottom: 1px solid var(--color-rose-100);
   padding-bottom: 16px;
   margin-bottom: 16px;
@@ -254,6 +260,10 @@ h1 {
   .dessert .title {
     font-size: 1.15em;
   }
+
+  .cart {
+    padding: 32px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -269,6 +279,7 @@ h1 {
   .cart {
     flex-basis: 30%;
     align-self: flex-start;
+    margin-bottom: 0;
   }
 
   .container {

@@ -2,8 +2,11 @@ import "./App.css";
 import desserts from "./data.json";
 import { Dessert } from "./components/Dessert";
 import { RemoveItem, CarbonNeutral } from "./Icons";
+import { useState } from "react";
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <div className="container">
       <main>
@@ -11,58 +14,35 @@ function App() {
           <h1>Desserts</h1>
           <div className="desserts-container">
             {desserts.map((dessertObj) => {
-              return <Dessert {...dessertObj} key={dessertObj.name} />;
+              return (
+                <Dessert
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                  dessert={dessertObj}
+                  key={dessertObj.name}
+                />
+              );
             })}
           </div>
         </div>
         <div className="cart">
           <h2>Your cart (7)</h2>
           <ul>
-            <li>
-              <p className="title">Classic Teiramisu</p>
-              <span className="quantity">1x</span>
-              <span className="price">@$5.50</span>
-              <span className="total">$5.50</span>
-              <button className="remove-btn">
-                <RemoveItem />
-              </button>
-            </li>
-            <li>
-              <p className="title">Classic Teiramisu</p>
-              <span className="quantity">1x</span>
-              <span className="price">@$5.50</span>
-              <span className="total">$5.50</span>
-              <button className="remove-btn">
-                <RemoveItem />
-              </button>
-            </li>
-            <li>
-              <p className="title">Classic Teiramisu</p>
-              <span className="quantity">1x</span>
-              <span className="price">@$5.50</span>
-              <span className="total">$5.50</span>
-              <button className="remove-btn">
-                <RemoveItem />
-              </button>
-            </li>
-            <li>
-              <p className="title">Classic Teiramisu</p>
-              <span className="quantity">1x</span>
-              <span className="price">@$5.50</span>
-              <span className="total">$5.50</span>
-              <button className="remove-btn">
-                <RemoveItem />
-              </button>
-            </li>
-            <li>
-              <p className="title">Classic Teiramisu</p>
-              <span className="quantity">1x</span>
-              <span className="price">@$5.50</span>
-              <span className="total">$5.50</span>
-              <button className="remove-btn">
-                <RemoveItem />
-              </button>
-            </li>
+            {cartItems.map((dessertObj) => {
+              return (
+                <li key={dessertObj.name}>
+                  <p className="title">{dessertObj.name}</p>
+                  <span className="quantity">{dessertObj.quantity}x</span>
+                  <span className="price">@${dessertObj.price.toFixed(2)}</span>
+                  <span className="total">
+                    ${(dessertObj.price * dessertObj.quantity).toFixed(2)}
+                  </span>
+                  <button className="remove-btn">
+                    <RemoveItem />
+                  </button>
+                </li>
+              );
+            })}
           </ul>
           <div className="summary">
             <div className="total">
