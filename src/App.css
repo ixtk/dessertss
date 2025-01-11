@@ -5,11 +5,9 @@
 }
 
 :root {
-  /* Primary and Secondary Colors */
   --color-primary: hsl(14, 86%, 42%);
   --color-secondary: hsl(159, 69%, 38%);
 
-  /* Rose Palette */
   --color-rose-50: hsl(20, 50%, 98%);
   --color-rose-100: hsl(13, 31%, 94%);
   --color-rose-300: hsl(14, 25%, 72%);
@@ -63,8 +61,7 @@ button {
 
 h1 {
   color: var(--color-rose-900);
-  /* font-size: 2.5rem; */
-  /* margin-top: 0; */
+  margin-top: 0;
 }
 
 /* DESSERT */
@@ -73,11 +70,38 @@ h1 {
   border-radius: 15px;
   width: 100%;
   max-height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
 }
 
-.dessert button {
+.quantity-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 12px;
+  border-radius: 24px;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 60%;
+  font-weight: 600;
+}
+
+.quantity-btns button {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.dessert .cart-btn {
   padding: 12px 25px;
   border-radius: 24px;
+  width: 60%;
   background-color: hsl(0, 0%, 100%);
   display: flex;
   gap: 8px;
@@ -120,6 +144,13 @@ h1 {
   background-color: hsl(0, 0%, 100%);
   border-radius: 15px;
   padding: 32px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 4px;
+}
+
+.cart ul {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 16px;
 }
 
 .cart li {
@@ -169,6 +200,44 @@ h1 {
   border: 1px solid var(--color-rose-500);
   border-radius: 50%;
   color: var(--color-rose-900);
+}
+
+.summary .total {
+  color: hsl(0, 0%, 0%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total .price {
+  font-size: 2rem;
+  color: hsl(0, 0%, 0%);
+  font-weight: 700;
+  margin: 0;
+}
+
+.carbon-neutral {
+  background-color: var(--color-rose-50);
+  border-radius: 15px;
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.summary strong {
+  font-weight: 600;
+}
+
+.order-btn {
+  background-color: var(--color-primary);
+  color: hsl(0, 0%, 100%);
+  padding: 16px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 50px;
 }
 
 @media screen and (min-width: 1200px) {

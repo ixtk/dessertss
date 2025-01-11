@@ -1,7 +1,7 @@
 import "./App.css";
 import desserts from "./data.json";
 import { Dessert } from "./components/Dessert";
-import { RemoveItem } from "./Icons";
+import { RemoveItem, CarbonNeutral } from "./Icons";
 
 function App() {
   return (
@@ -64,6 +64,17 @@ function App() {
               </button>
             </li>
           </ul>
+          <div className="summary">
+            <div className="total">
+              <p>Order total</p>
+              <p className="price">$46.50</p>
+            </div>
+            <p className="carbon-neutral">
+              <CarbonNeutral />
+              This is a <strong>carbon-neutral</strong> delivery
+            </p>
+            <button className="order-btn">Confirm Order</button>
+          </div>
         </div>
       </main>
     </div>
